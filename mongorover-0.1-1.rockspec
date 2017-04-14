@@ -19,7 +19,7 @@ limitations under the License.
 package = "mongorover"
  version = "0.1-1"
  source = {
-    url = "git://github.com/10gen-labs/mongorover",
+    url = "git://github.com/padicao2010/mongorover",
     tag = "0.1"
  }
  description = {
