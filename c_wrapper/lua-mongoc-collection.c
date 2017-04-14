@@ -461,6 +461,7 @@ int lua_mongo_collection_aggregate(lua_State *L)
     mongoc_cursor_t *cursor = NULL;
     bson_error_t error;
     bool throw_error = false;
+    bson_t opts;
 
     int absolute_luaBSONObjects_index = 2;
     int aggregation_pipeline_index = 3;
@@ -484,9 +485,13 @@ int lua_mongo_collection_aggregate(lua_State *L)
         bson_append_array_end(&aggregation_pipeline, &inner_aggregation_pipeline);
     }
 
+    bson_init (&opts);
+    BSON_APPEND_BOOL (&opts, "allowDiskUse", true);
+
     cursor = mongoc_collection_aggregate(collection->c_collection, MONGOC_QUERY_NONE,
                                          &aggregation_pipeline,
-                                         NULL, NULL);
+                                         &opts, NULL);
+    bson_destroy(&opts)
 
 DONE:
     bson_destroy(&aggregation_pipeline);
