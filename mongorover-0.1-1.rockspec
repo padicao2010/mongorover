@@ -20,7 +20,6 @@ package = "mongorover"
  version = "0.1-1"
  source = {
     url = "git://github.com/padicao2010/mongorover",
-    tag = "0.1"
  }
  description = {
     summary = "A Lua driver for MongoDB.",

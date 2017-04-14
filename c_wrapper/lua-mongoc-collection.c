@@ -491,7 +491,7 @@ int lua_mongo_collection_aggregate(lua_State *L)
     cursor = mongoc_collection_aggregate(collection->c_collection, MONGOC_QUERY_NONE,
                                          &aggregation_pipeline,
                                          &opts, NULL);
-    bson_destroy(&opts)
+    bson_destroy(&opts);
 
 DONE:
     bson_destroy(&aggregation_pipeline);
